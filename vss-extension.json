@@ -3,13 +3,13 @@
   "id": "build-release-task",
   "name": "Fabrikam Build and Release Tools",
   "version": "0.0.1",
-  "publisher": "Manage-code",
+  "publisher": "Managed-code",
   "targets": [
       {
           "id": "Microsoft.VisualStudio.Services"
       }
   ],    
-  "description": "Tools for building/releasing with Manage-code. Includes one build/release task.",
+  "description": "Tools for building/releasing with Managed-code. Includes one build/release task.",
   "categories": [
       "Azure Pipelines"
   ],
