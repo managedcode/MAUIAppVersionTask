@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "second"
+    "test": "mocha tests/_suite.js"
   },
   "keywords": [],
   "author": "second",
