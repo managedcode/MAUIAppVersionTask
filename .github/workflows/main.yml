@@ -19,6 +19,9 @@ jobs:
       - name: npm install
         run: npm install
         
+      - name: mocha install  
+        run: npm install -g mocha
+        
       - name: Test something
         run: echo "Test CI/CD without command"
       - name: Run Mocha tests
