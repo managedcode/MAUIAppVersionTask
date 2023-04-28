@@ -9,12 +9,6 @@ describe('Sample task tests', function () {
     after(function () {
     });
     it('should succeed with simple inputs', function (done) {
-        // Add success test here
-    });
-    it('it should fail if tool returns 1', function (done) {
-        // Add failure test here
-    });
-    it('should succeed with simple inputs', function (done) {
         this.timeout(1000);
         var tp = path.join(__dirname, 'success.js');
         var tr = new ttm.MockTestRunner(tp);

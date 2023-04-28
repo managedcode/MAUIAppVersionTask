@@ -24,6 +24,9 @@ jobs:
         
       - name: Test something
         run: echo "Test CI/CD without command"
-      - name: Run Mocha tests
-        run: npm test
+      - name: npm install 
+        run: npm install mocha azure-pipelines-task-lib sync-request @types/q @types/node
+        
+      - name: Test Mocha
+        run: mocha tasks/tests/_suite.js
 
