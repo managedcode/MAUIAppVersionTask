@@ -10,76 +10,16 @@ on:
 
 
 jobs:
-  
-  action-test-macos:
-    runs-on: macos-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: MAUIAppVersion
-        uses: managedcode/MAUIAppVersion@v1
-        with:
-          csproj: tests/MauiApp.csproj
-          version: ${{ github.run_number }}
-          displayVersion: '100.500'
-          printFile: true
-
-  action-test-winfows:
-    runs-on: windows-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: MAUIAppVersion
-        uses: managedcode/MAUIAppVersion@v1
-        with:
-          csproj: tests/MauiApp.csproj
-          version: ${{ github.run_number }}
-          displayVersion: '100.500'
-
-  action-test-ubuntu:
+   build-and-test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: MAUIAppVersion
-        uses: managedcode/MAUIAppVersion@v1
-        with:
-          csproj: tests/MauiApp.csproj
-          version: ${{ github.run_number }}
-          displayVersion: '100.500'
+      - uses: actions/setup-node@v2.5.2
+      
+      - name: npm install
+        run: npm install
+        
+      - name: some name
+        run: some command
+     
 
-  action-test-ubuntu-diaplay:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: MAUIAppVersion
-        uses: managedcode/MAUIAppVersion@v1
-        with:
-          csproj: tests/MauiApp.csproj
-          displayVersion: '100.500'
-
-  action-test-ubuntu-version:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: MAUIAppVersion
-        uses: managedcode/MAUIAppVersion@v1
-        with:
-          csproj: tests/MauiApp.csproj
-          version: ${{ github.run_number }}
-
-  action-test-ubuntu-none:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: MAUIAppVersion
-        uses: managedcode/MAUIAppVersion@v1
-        with:
-          csproj: tests/MauiApp.csproj
-
-  action-test-ubuntu-none-print:
-    runs-on: macos-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: MAUIAppVersion
-        uses: managedcode/MAUIAppVersion@v1
-        with:
-          csproj: tests/MauiApp.csproj
-          printFile: true
