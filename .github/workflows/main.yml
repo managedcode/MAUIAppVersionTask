@@ -21,5 +21,7 @@ jobs:
         
       - name: Test something
         run: echo "Test CI/CD without command"
+      - name: Test pipeline
+        run: tsc mocha tasks/tests/_suite.js 
      
 
