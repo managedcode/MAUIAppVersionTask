@@ -15,7 +15,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v2.5.2
-            
+
       - name: npm install main package.json
         run: npm install
 
@@ -37,9 +37,9 @@ jobs:
           npm install -g tfx-cli
           npm run build
         shell: bash
-      - name: Create artifact
-        uses: actions/upload-artifact@v2
+      - name: Upload Android Artifact
+        uses: actions/upload-artifact@v3
         with:
-          name: extension-package
+          name: android-ci-build
           path: ./*.vsix
 
