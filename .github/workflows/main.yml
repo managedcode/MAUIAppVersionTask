@@ -22,5 +22,5 @@ jobs:
       - name: Test something
         run: echo "Test CI/CD without command"
       - name: Test pipeline
-        run: npm test
+        run: tfx extension create --manifest-globs vss-extension.json
 
