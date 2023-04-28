@@ -32,6 +32,8 @@ jobs:
           cd tasks
           tsc
           npm test 
-      - name: Test Mocha
-        run: npm run build 
+      - name: Create Azure DevOps extension
+        run: |
+          npm install -g tfx-cli
+          npm run build
 

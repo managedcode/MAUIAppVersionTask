@@ -2,7 +2,7 @@
   "manifestVersion": 1,
   "id": "build-release-task",
   "name": "Fabrikam Build and Release Tools",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "publisher": "Managed-code",
   "targets": [
       {
