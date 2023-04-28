@@ -17,15 +17,10 @@ jobs:
       - uses: actions/setup-node@v2.5.2
       
       - name: npm install
-        run: npm install
-        
-      - name: mocha install  
-        run: npm install -g mocha
+        run: npm install mocha azure-pipelines-task-lib sync-request @types/q @types/node
         
       - name: Test something
         run: echo "Test CI/CD without command"
-      - name: npm install 
-        run: npm install mocha azure-pipelines-task-lib sync-request @types/q @types/node
         
       - name: Test Mocha
         run: mocha tasks/tests/_suite.js
