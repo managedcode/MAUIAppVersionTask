@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha tasks/tests/_suite.js"
+    "test": "mocha tasks/tests/_suite.js",
+    "build": "tfx extension create --manifest-globs vss-extension.json"
   },
   "repository": {
     "type": "git",
