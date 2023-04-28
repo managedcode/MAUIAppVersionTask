@@ -7,10 +7,10 @@ describe('Sample task tests', function () {
     before( function() {
 
     });
-
     after(() => {
 
     });
+
     it('should succeed with simple inputs', function(done: Mocha.Done) {
       this.timeout(1000);
   
