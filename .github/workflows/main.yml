@@ -17,12 +17,16 @@ jobs:
       - uses: actions/setup-node@v2.5.2
       
       - name: npm install main package.json
-        run: npm install --prefix
+        run: npm install
+
       - name: npm install tasks package.json
-        run: npm install --prefix tasks
+        run: |
+          cd tasks
+          npm install
+          npm  i mocha
+
       - name: Test something
         run: echo "Test CI/CD without command"
-        
       - name: Test Mocha
-        run: npm test --prefix tasks
+        run: npm test 
 
