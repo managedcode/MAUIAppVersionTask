@@ -4,10 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "bild": "echo \"Error: no test specified\" && exit 1"
+    "test": "second"
   },
   "keywords": [],
-  "author": "",
+  "author": "second",
   "license": "ISC",
   "dependencies": {
     "azure-pipelines-task-lib": "^4.3.1"

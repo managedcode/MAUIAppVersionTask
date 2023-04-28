@@ -23,6 +23,6 @@ jobs:
       - name: Test something
         run: echo "Test CI/CD without command"
         
-      # - name: Test Mocha
-      #   run: mocha tasks/tests/_suite.js
+      - name: Test Mocha
+        run: npm test --prefix tasks
 
