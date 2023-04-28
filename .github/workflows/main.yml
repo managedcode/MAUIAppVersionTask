@@ -17,7 +17,15 @@ jobs:
       - uses: actions/setup-node@v2.5.2
       
       - name: npm install
-        run: npm install -g mocha azure-pipelines-task-lib sync-request @types/q @types/node
+        run: npm install -g azure-pipelines-task-lib
+      - name: npm install
+        run: npm install -g mocha
+      - name: npm install
+        run: npm install -g sync-request
+      - name: npm install
+        run: npm install -g @types/q
+      - name: npm install
+        run: npm install -g @types/node
         
       - name: Test something
         run: echo "Test CI/CD without command"
