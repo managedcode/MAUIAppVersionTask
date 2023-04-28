@@ -30,5 +30,6 @@ jobs:
       - name: Test Mocha
         run: |
           cd tasks
+          tsc
           npm test 
 
