@@ -130,3 +130,4 @@ dist
 .pnp.*
 
 echo node_modules > .gitignore
+.vsix
