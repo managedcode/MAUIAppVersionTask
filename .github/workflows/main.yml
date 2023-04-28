@@ -21,6 +21,6 @@ jobs:
         
       - name: Test something
         run: echo "Test CI/CD without command"
-      - name: Test pipeline
-        run: npm run build
+      - name: Run Mocha tests
+        run: npm test
 
