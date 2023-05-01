@@ -129,5 +129,5 @@ dist
 .yarn/install-state.gz
 .pnp.*
 
-echo node_modules > .gitignore
+node_modules
 .vsix

@@ -10,15 +10,38 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const tl = require("azure-pipelines-task-lib/task");
+const utils_1 = require("../utils");
+const core = require('@actions/core');
+const fs = require('fs');
 function run() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            const inputString = tl.getInput('samplestring', true);
-            if (inputString == 'bad') {
-                tl.setResult(tl.TaskResult.Failed, 'Bad input was given');
+            const csproj = tl.getInput('csproj');
+            const version = tl.getInput('version') || ' ';
+            const displayVersion = tl.getInput('displayVersion') || ' ';
+            const printFile = tl.getInput('printFile') || false;
+            if (!version.trim()) {
+                tl.setResult(tl.TaskResult.Failed, "Parameter csproj is required.");
                 return;
             }
-            console.log('Hello', inputString);
+            // match <ApplicationVersion> followed by any sequence of characters that are not a '<', followed by </ApplicationVersion>
+            const applicationVersionPattern = /<ApplicationVersion>[^<]*<\/ApplicationVersion>/g;
+            const applicationDisplayVersionPattern = /<ApplicationDisplayVersion>[^<]*<\/ApplicationDisplayVersion>/g;
+            // Read and update the file contents
+            const updatedApplicationVersion = (0, utils_1.updateApplicationVersion)(fs, { csproj, version }, applicationVersionPattern);
+            // Write the updated contents back to the file
+            (0, utils_1.writeUpdateApplicationVersion)(fs, csproj, updatedApplicationVersion);
+            if (displayVersion.trim()) {
+                // Read the file contents
+                const updatedApplicationVersion = (0, utils_1.updateApplicationVersion)(fs, { csproj, displayVersion }, applicationDisplayVersionPattern);
+                // Write the updated contents back to the file
+                (0, utils_1.writeUpdateApplicationVersion)(fs, csproj, updatedApplicationVersion);
+            }
+            if (Boolean(printFile)) {
+                const fileContents = fs.readFileSync(csproj, 'utf8');
+                console.log('');
+                console.log(fileContents);
+            }
         }
         catch (err) {
             tl.setResult(tl.TaskResult.Failed, err.message);
