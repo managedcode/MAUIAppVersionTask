@@ -2,14 +2,14 @@
   "manifestVersion": 1,
   "id": "build-release-task",
   "name": "MAUI App Version Task",
-  "version": "0.0.5",
+  "version": "0.0.8",
   "publisher": "Managed-code",
   "targets": [
       {
           "id": "Microsoft.VisualStudio.Services"
       }
   ],    
-  "description": "This task updates the application version and/or display version properties in a .cproj file for a MAUI application. You can use this task as part of your CI/CD workflow to automatically update the version properties when building and publishing your MAUI application.",
+  "description": "This task updates the application version and/or display version properties in a .cproj file for a MAUI application.",
   "categories": [
       "Azure Pipelines"
   ],
