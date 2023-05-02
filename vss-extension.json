@@ -3,13 +3,13 @@
   "id": "build-release-task",
   "name": "Fabrikam Build and Release Tools",
   "version": "0.0.5",
-  "publisher": "Managed-code",
+
   "targets": [
       {
           "id": "Microsoft.VisualStudio.Services"
       }
   ],    
-  "description": "Tools for building/releasing with Managed-code. Includes one build/release task.",
+  "description": "This task updates the application version and/or display version properties in a .cproj file for a MAUI application. You can use this task as part of your CI/CD workflow to automatically update the version properties when building and publishing your MAUI application.",
   "categories": [
       "Azure Pipelines"
   ],
