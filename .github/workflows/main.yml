@@ -34,7 +34,7 @@ jobs:
           npm test 
       - name: Create Azure DevOps extension
         run: |
-           npm install uuid@7.0.3 --force
+          npm install uuid@7.0.3 --force
           npm install -g tfx-cli@latest
           npm run build
         shell: bash
