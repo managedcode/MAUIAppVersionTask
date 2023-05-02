@@ -1,9 +1,9 @@
 {
   "manifestVersion": 1,
   "id": "build-release-task",
-  "name": "Fabrikam Build and Release Tools",
+  "name": "MAUI App Version Task",
   "version": "0.0.5",
-
+  "publisher": "Managed-code",
   "targets": [
       {
           "id": "Microsoft.VisualStudio.Services"
