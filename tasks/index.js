@@ -20,10 +20,6 @@ function run() {
             const version = tl.getInput('version') || ' ';
             const displayVersion = tl.getInput('displayVersion') || ' ';
             const printFile = tl.getInput('printFile') || false;
-            console.log(csproj);
-            console.log(version);
-            console.log(displayVersion);
-            console.log(printFile);
             // match <ApplicationVersion> followed by any sequence of characters that are not a '<', followed by </ApplicationVersion>
             const applicationVersionPattern = /<ApplicationVersion>[^<]*<\/ApplicationVersion>/g;
             const applicationDisplayVersionPattern = /<ApplicationDisplayVersion>[^<]*<\/ApplicationDisplayVersion>/g;
