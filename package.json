@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/managedcode/MAUIAppVersionTask/issues"
   },
-  "homepage": "https://github.com/managedcode/MAUIAppVersionTask#readme"
+  "homepage": "https://github.com/managedcode/MAUIAppVersionTask#readme",
+  "dependencies": {
+    "uuid": "^9.0.0"
+  }
 }
