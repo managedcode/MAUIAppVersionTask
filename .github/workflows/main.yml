@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-node@v2.5.2
+      - uses: actions/setup-node@v3
 
       - name: npm install main package.json
         run: npm install
@@ -23,7 +23,6 @@ jobs:
         run: |
           cd tasks
           npm install
-          npm i -g uuid@latest
           npm  i mocha
 
       - name: Test something
