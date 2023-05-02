@@ -20,17 +20,19 @@ function run() {
             const version = tl.getInput('version') || ' ';
             const displayVersion = tl.getInput('displayVersion') || ' ';
             const printFile = tl.getInput('printFile') || false;
-            if (!version.trim()) {
-                tl.setResult(tl.TaskResult.Failed, "Parameter csproj is required.");
-                return;
-            }
+            console.log(csproj);
+            console.log(version);
+            console.log(displayVersion);
+            console.log(printFile);
             // match <ApplicationVersion> followed by any sequence of characters that are not a '<', followed by </ApplicationVersion>
             const applicationVersionPattern = /<ApplicationVersion>[^<]*<\/ApplicationVersion>/g;
             const applicationDisplayVersionPattern = /<ApplicationDisplayVersion>[^<]*<\/ApplicationDisplayVersion>/g;
-            // Read and update the file contents
-            const updatedApplicationVersion = (0, utils_1.updateApplicationVersion)(fs, { csproj, version }, applicationVersionPattern);
-            // Write the updated contents back to the file
-            (0, utils_1.writeUpdateApplicationVersion)(fs, csproj, updatedApplicationVersion);
+            if (version.trim()) {
+                // Read the file contents
+                const updatedApplicationVersion = (0, utils_1.updateApplicationVersion)(fs, { csproj, version }, applicationVersionPattern);
+                // Write the updated contents back to the file
+                (0, utils_1.writeUpdateApplicationVersion)(fs, csproj, updatedApplicationVersion);
+            }
             if (displayVersion.trim()) {
                 // Read the file contents
                 const updatedApplicationVersion = (0, utils_1.updateApplicationVersion)(fs, { csproj, displayVersion }, applicationDisplayVersionPattern);

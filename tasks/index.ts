@@ -10,20 +10,17 @@ async function run() {
     const displayVersion:string = tl.getInput('displayVersion') || ' ';
     const printFile:boolean | string = tl.getInput('printFile') || false;
 
-    if (!version.trim()) {
-      tl.setResult(tl.TaskResult.Failed, "Parameter csproj is required.");
-      return;
-    }
-
     // match <ApplicationVersion> followed by any sequence of characters that are not a '<', followed by </ApplicationVersion>
     const applicationVersionPattern = /<ApplicationVersion>[^<]*<\/ApplicationVersion>/g; 
     const applicationDisplayVersionPattern = /<ApplicationDisplayVersion>[^<]*<\/ApplicationDisplayVersion>/g; 
 
-     // Read and update the file contents
-    const updatedApplicationVersion = updateApplicationVersion(fs,{csproj,version},applicationVersionPattern);
+    if (version.trim()) {
+      // Read the file contents
+      const updatedApplicationVersion = updateApplicationVersion(fs,{csproj,version},applicationVersionPattern);
 
-    // Write the updated contents back to the file
-    writeUpdateApplicationVersion(fs,csproj,updatedApplicationVersion)
+      // Write the updated contents back to the file
+      writeUpdateApplicationVersion(fs,csproj,updatedApplicationVersion)
+    }
 
     if (displayVersion.trim()) {
       // Read the file contents
