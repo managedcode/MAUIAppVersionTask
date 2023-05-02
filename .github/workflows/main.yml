@@ -23,6 +23,7 @@ jobs:
         run: |
           cd tasks
           npm install
+          npm i -g uuid@latest
           npm  i mocha
 
       - name: Test something
@@ -34,8 +35,6 @@ jobs:
           npm test 
       - name: Create Azure DevOps extension
         run: |
-        
-          npm install -g uuid@latest
           npm install -g tfx-cli@latest
           npm run build
         shell: bash
