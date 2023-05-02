@@ -3,7 +3,7 @@
   "id": "build-release-task",
   "name": "MAUI App Version Task",
   "version": "0.0.8",
-  "publisher": "Managed-code",
+  "publisher": "ManagedCode",
   "targets": [
       {
           "id": "Microsoft.VisualStudio.Services"
