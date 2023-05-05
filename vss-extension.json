@@ -1,8 +1,8 @@
 {
   "manifestVersion": 1,
-  "id": "build-release-task",
-  "name": "MAUI App Version Task",
-  "version": "0.0.8",
+  "id": "MAUIAppVersionTask",
+  "name": "MAUI App Version",
+  "version": "0.0.9",
   "publisher": "ManagedCode",
   "targets": [
       {
@@ -11,7 +11,8 @@
   ],    
   "description": "This task updates the application version and/or display version properties in a .cproj file for a MAUI application.",
   "categories": [
-      "Azure Pipelines"
+      "Azure Pipelines",
+      "MAUI"
   ],
   "icons": {
       "default": "images/extension-icon.png"
