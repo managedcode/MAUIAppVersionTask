@@ -11,8 +11,7 @@
   ],    
   "description": "This task updates the application version and/or display version properties in a .cproj file for a MAUI application.",
   "categories": [
-      "Azure Pipelines",
-      "MAUI"
+      "Azure Pipelines"
   ],
   "icons": {
       "default": "images/extension-icon.png"
