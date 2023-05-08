@@ -1,7 +1,27 @@
 import tl = require('azure-pipelines-task-lib/task');
-import {updateApplicationVersion,writeUpdateApplicationVersion} from '../utils';
-const core = require('@actions/core');
 const fs = require('fs');
+
+export const updateApplicationVersion = (data:any,updateSegment:RegExp) => {
+  const fileContents = fs.readFileSync(data.csproj, 'utf8');
+  let updatedApplicationVersion;
+
+  if(data?.version) {
+    updatedApplicationVersion = fileContents.replace(updateSegment, 
+      `<ApplicationVersion>${data.version}</ApplicationVersion>`
+    );
+    return updatedApplicationVersion;
+  }
+
+  updatedApplicationVersion = fileContents.replace(updateSegment, 
+    `<ApplicationDisplayVersion>${data?.displayVersion}</ApplicationDisplayVersion>`
+  );
+  return updatedApplicationVersion;
+}
+export const writeUpdateApplicationVersion = (csproj:string | undefined,updateSegment:any) => {
+  fs.writeFileSync(csproj, updateSegment, 'utf8');
+}
+
+
 
 async function run() {
   try {
@@ -16,18 +36,18 @@ async function run() {
 
     if (version.trim()) {
       // Read the file contents
-      const updatedApplicationVersion = updateApplicationVersion(fs,{csproj,version},applicationVersionPattern);
+      const updatedApplicationVersion = updateApplicationVersion({csproj,version},applicationVersionPattern);
 
       // Write the updated contents back to the file
-      writeUpdateApplicationVersion(fs,csproj,updatedApplicationVersion)
+      writeUpdateApplicationVersion(csproj,updatedApplicationVersion)
     }
 
     if (displayVersion.trim()) {
       // Read the file contents
-      const updatedApplicationVersion = updateApplicationVersion(fs,{csproj,displayVersion},applicationDisplayVersionPattern);
+      const updatedApplicationVersion = updateApplicationVersion({csproj,displayVersion},applicationDisplayVersionPattern);
 
       // Write the updated contents back to the file
-      writeUpdateApplicationVersion(fs,csproj,updatedApplicationVersion)
+      writeUpdateApplicationVersion(csproj,updatedApplicationVersion)
     }
 
     if(Boolean(printFile)) {
