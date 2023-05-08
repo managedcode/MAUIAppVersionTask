@@ -2,27 +2,50 @@
 {
   "$schema": "https://raw.githubusercontent.com/Microsoft/azure-pipelines-task-lib/master/tasks.schema.json",
   "id": "8678ecd6-24e0-4647-b37b-ef088246af84",
-  "name": "get-something-data",
-  "friendlyName": "Task function",
-  "description": "Task description",
+  "name": "MAUIAppVersionTask",
+  "friendlyName": "MAUI App Version",
+  "description": "This task updates the application version and/or display version properties in a .cproj file for a MAUI application.",
   "helpMarkDown": "",
   "category": "Utility",
-  "author": "Nothing",
+  "author": "Managed Code",
   "version": {
       "Major": 0,
-      "Minor": 1,
+      "Minor": 2,
       "Patch": 0
   },
   "instanceNameFormat": "Echo $(samplestring)",
   "inputs": [
       {
-          "name": "samplestring",
+          "name": "csproj",
           "type": "string",
-          "label": "Sample String",
-          "defaultValue": "",
+          "label": "Path to csproj",
           "required": true,
-          "helpMarkDown": "A sample string"
-      }
+          "helpMarkDown": "Path to csproj"
+      },
+      {
+        "name": "version",
+        "type": "string",
+        "label": "Version",
+        "defaultValue": "",
+        "required": false,
+        "helpMarkDown": "version"
+    },
+    {
+        "name": "displayVersion",
+        "type": "string",
+        "label": "Display Version",
+        "defaultValue": "",
+        "required": false,
+        "helpMarkDown": "Display Version"
+    },
+    {
+        "name": "printFile",
+        "type": "boolean",
+        "label": "Print File",
+        "defaultValue": true,
+        "required": false,
+        "helpMarkDown": "Print File"
+    }
   ],
   "execution": {
       "Node": {

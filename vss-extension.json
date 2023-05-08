@@ -1,9 +1,9 @@
 {
   "manifestVersion": 1,
-  "id": "build-release-task",
-  "name": "MAUI App Version Task",
-  "version": "0.0.8",
-  "publisher": "Managed-code",
+  "id": "MAUIAppVersionTask",
+  "name": "MAUI App Version",
+  "version": "0.0.9",
+  "publisher": "ManagedCode",
   "targets": [
       {
           "id": "Microsoft.VisualStudio.Services"
